@@ -18,6 +18,18 @@ function UserDetails() {
   useEffect(() => {
     loadDetails();
   }, []);
+
+  useEffect(() => {
+    const storageUser = JSON.parse(localStorage.getItem("user") || "{}");
+
+    if (storageUser?.email) {
+      setUser(storageUser);
+    } else {
+      showToast("You are not logged in!", "alert", 5000);
+      window.location.href = "/login";
+    }
+  }, []);
+
   return (
     <>
       <Navbar />
