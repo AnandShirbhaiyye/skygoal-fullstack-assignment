@@ -5,6 +5,7 @@ function UserDetails() {
   return (
     <>
     <Navbar/>
+    <h1 className='text-center'>UserDetails</h1>
     </>
   )
 }

@@ -1,0 +1,15 @@
+.login-container {
+    width: 400px;
+    background-color: white;
+    display: block;
+    margin: 80px auto;
+  }
+  .login-link{
+    text-decoration: none;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .login-container {
+      width: 320px;
+    }
+  }
