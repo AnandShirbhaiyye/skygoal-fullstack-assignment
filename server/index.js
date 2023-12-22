@@ -4,6 +4,9 @@ import dotenv from "dotenv";
 import { getApiHealth } from "./controllers/health.js";
 import { postApiLogin, postApiSignup, getApiUserDetails } from "./controllers/user.js";
 dotenv.config();
+import path from 'path';
+
+const __dirname = path.resolve();
 
 const app = express();
 app.use(express.json());
@@ -26,6 +29,14 @@ app.post('/api/signup', postApiSignup);
 app.post('/api/login', postApiLogin);
 
 app.get('/api/userdetails',  getApiUserDetails)
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '..', 'client', 'build')));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'))
+  });
+}
 
 const PORT = process.env.PORT || 5000;
 
