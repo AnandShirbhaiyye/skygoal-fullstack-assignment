@@ -1,7 +1,8 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import { postApiLogin, postApiSignup } from "./controllers/user.js";
+import { getApiHealth } from "./controllers/health.js";
+import { postApiLogin, postApiSignup, getApiUserDetails } from "./controllers/user.js";
 dotenv.config();
 
 const app = express();
@@ -20,10 +21,11 @@ connectMongoDB();
 
 app.get("/api/health", getApiHealth);
 
-app.post('/signup', postApiSignup);
+app.post('/api/signup', postApiSignup);
 
-app.post('/login', postApiLogin);
+app.post('/api/login', postApiLogin);
 
+app.get('/api/userdetails',  getApiUserDetails)
 
 const PORT = process.env.PORT || 5000;
 

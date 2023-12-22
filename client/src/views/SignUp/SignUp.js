@@ -69,7 +69,7 @@ function SignUp() {
 
   return (
     <>
-      <Navbar />
+      <Navbar/>
       <form>
         <div className="signup-container shadow-lg p-4 mb-5  rounded">
           <h3 className="text-center">SignUp</h3>

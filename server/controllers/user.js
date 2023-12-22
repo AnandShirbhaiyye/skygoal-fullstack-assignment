@@ -1,4 +1,5 @@
 import User from "../models/User.js";
+import { responder } from "../util.js";
 
 const postApiSignup = async (req, res) => {
   const { name, email, password, mobile, address, gender } = req.body;
@@ -58,4 +59,15 @@ const postApiLogin = async (req, res) => {
   }
 };
 
-export { postApiSignup, postApiLogin };
+const getApiUserDetails = async (req, res) => {
+    const userdetails = await User.find();
+  
+    return responder({
+      res,
+      success: true,
+      message: "successfully fetched all user-details",
+      data: userdetails,
+    });
+  };
+
+export { postApiSignup, postApiLogin,  getApiUserDetails };
