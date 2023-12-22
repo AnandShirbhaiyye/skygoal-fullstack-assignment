@@ -17,6 +17,8 @@ async function connectMongoDB() {
 }
 connectMongoDB();
 
+app.get("/api/health", getApiHealth);
+
 
 const PORT = process.env.PORT || 5000;
 
