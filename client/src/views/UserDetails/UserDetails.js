@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Navbar from "../../components/Navbar/Navbar";
+import showToast from "crunchy-toast";
 
 function UserDetails() {
   const [userdetails, setUserdetails] = useState([]);
+  const [user, setUser] = useState({})
 
   const loadDetails = async () => {
     try {
